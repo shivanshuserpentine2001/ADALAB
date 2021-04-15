@@ -2,25 +2,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
-int gcd(int a, int b)
-{
-
-    if (a == 0)
-
-        return b;
-
-    return gcd(b%a, a);
+#include <stdio.h>
+int hcf(int n1, int n2);
+int main() {
+    int n1, n2;
+    printf("Enter two positive integers: ");
+    scanf("%d %d", &n1, &n2);
+    printf("G.C.D of %d and %d is %d.", n1, n2, hcf(n1, n2));
+    return 0;
 }
 
-void  main()
-{
- int x,n1,n2;
-    printf("THE FIRST NO :");
-    scanf("%d",&n1);
-printf("THE SECOND NO :",n2);
-      scanf("%d",&n2);
-     x=gcd(n1,n2);
-    printf("RESULT IS :",x);
-  
+int hcf(int n1, int n2) {
+    if (n2 != 0)
+        return hcf(n2, n1 % n2);
+    else
+        return n1;
 }
